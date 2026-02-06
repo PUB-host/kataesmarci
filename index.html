@@ -1,1 +1,475 @@
-<!-- placeholder -->
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>Kata & Marci Esküvő • Hamarosan</title>
+
+  <!-- Külső fontok + ikonok (GitHub Pages kompatibilis) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    :root{
+      --cream:#F5F0E8;
+      --dark-brown:#765830;
+      --gold:#B48B58;
+      --light-gold:#D4B896;
+      --white:#FFFFFF;
+
+      --font-script:'Great Vibes', cursive;
+      --font-serif:'Cormorant Garamond', serif;
+      --font-sans:'Montserrat', sans-serif;
+
+      --radius:22px;
+      --shadow: 0 18px 60px rgba(0,0,0,.20);
+      --border: 1px solid rgba(212,184,150,.45);
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      font-family:var(--font-serif);
+      color:var(--dark-brown);
+      background: var(--cream);
+      overflow-x:hidden;
+    }
+
+    /* Finom háttér, elegáns */
+    .bg{
+      position:fixed; inset:0; z-index:-2;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(180,139,88,.22), transparent 45%),
+        radial-gradient(circle at 82% 28%, rgba(212,184,150,.16), transparent 55%),
+        radial-gradient(circle at 50% 86%, rgba(118,88,48,.12), transparent 60%),
+        linear-gradient(180deg, rgba(245,240,232,1) 0%, rgba(245,240,232,.94) 38%, rgba(245,240,232,1) 100%);
+    }
+    .grain{
+      position:fixed; inset:-40%; z-index:-1;
+      opacity:.10; pointer-events:none;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='260' height='260' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+      transform:rotate(8deg);
+    }
+
+    .wrap{
+      min-height:100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+    }
+
+    .card{
+      width:min(900px, 100%);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.72);
+      border: var(--border);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      overflow:hidden;
+      position:relative;
+    }
+
+    /* Diszkrét “aura” */
+    .card::before{
+      content:"";
+      position:absolute;
+      inset:-140px -140px auto -140px;
+      height:280px;
+      background: radial-gradient(circle at 28% 28%, rgba(180,139,88,.30), transparent 62%);
+      pointer-events:none;
+    }
+
+    header{
+      padding: clamp(28px, 4vw, 40px) clamp(18px, 3.2vw, 30px) 18px;
+      text-align:center;
+      position:relative;
+    }
+
+    /* K & M külön blokk */
+    .brand{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:14px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(245,240,232,.60);
+      border: 1px solid rgba(212,184,150,.55);
+      font-family: var(--font-sans);
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--dark-brown);
+      user-select:none;
+    }
+    .brand b{
+      font-family: var(--font-script);
+      letter-spacing: .5px;
+      text-transform:none;
+      color: var(--gold);
+      font-size: 1.8rem;
+      font-weight: 400;
+      line-height:1;
+      transform: translateY(1px);
+    }
+
+    /* Finom elválasztó vonal */
+    .divider{
+      width: min(420px, 80%);
+      height: 1px;
+      margin: 18px auto 14px;
+      background: linear-gradient(90deg, transparent, rgba(180,139,88,.55), transparent);
+    }
+
+    h1{
+      font-family: var(--font-serif);
+      font-weight: 500;
+      font-size: clamp(1.6rem, 2.8vw, 2.3rem);
+      color: var(--dark-brown);
+      letter-spacing: .6px;
+      line-height:1.15;
+    }
+
+    /* Hamarosan diszkrét animáció */
+    .dots::after{
+      content:"";
+      display:inline-block;
+      width: 1.2em;
+      text-align:left;
+      animation: dots 1.2s infinite steps(4);
+      opacity:.9;
+    }
+    @keyframes dots{
+      0%{content:""}
+      25%{content:"."}
+      50%{content:".."}
+      75%{content:"..."}
+      100%{content:""}
+    }
+
+    .sub{
+      margin-top: 10px;
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.05rem;
+      opacity: .85;
+      padding: 0 10px;
+    }
+
+    .content{
+      padding: 14px clamp(16px, 3vw, 28px) clamp(22px, 3.4vw, 30px);
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .panel{
+      border-radius: 18px;
+      background: rgba(245,240,232,.55);
+      border: var(--border);
+      padding: 16px;
+    }
+
+    .panel-title{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      margin-bottom: 10px;
+      font-family: var(--font-sans);
+      font-size: .9rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      opacity:.9;
+    }
+    .panel-title i{color:var(--gold)}
+
+    .countdown{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:center;
+    }
+    .box{
+      flex: 1 1 160px;
+      max-width: 220px;
+      background: rgba(255,255,255,.72);
+      border: var(--border);
+      border-radius: 16px;
+      padding: 14px 12px;
+      text-align:center;
+    }
+    .num{
+      font-family:var(--font-serif);
+      font-size: 2.1rem;
+      font-weight:600;
+      color: var(--gold);
+      line-height:1.1;
+    }
+    .lbl{
+      margin-top:4px;
+      font-family:var(--font-sans);
+      font-size:.82rem;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      opacity:.75;
+    }
+
+    .actions{
+      margin-top: 12px;
+      display:flex;
+      justify-content:center;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding: 12px 16px;
+      border-radius:999px;
+      border: 1px solid rgba(212,184,150,.60);
+      background: rgba(255,255,255,.60);
+      color: var(--dark-brown);
+      text-decoration:none;
+      font-family:var(--font-sans);
+      font-size:.95rem;
+      letter-spacing: .8px;
+      cursor:pointer;
+      transition: transform .15s ease, background-color .15s ease, border-color .15s ease;
+      user-select:none;
+    }
+    .btn:hover{
+      transform: translateY(-1px);
+      border-color: rgba(180,139,88,.80);
+    }
+    .btn-primary{
+      background: var(--gold);
+      color: var(--white);
+      border-color: rgba(180,139,88,.65);
+    }
+    .btn-primary:hover{
+      background: var(--dark-brown);
+      border-color: rgba(118,88,48,.75);
+    }
+
+    .note{
+      margin-top: 10px;
+      text-align:center;
+      font-family: var(--font-sans);
+      font-size: .88rem;
+      opacity:.78;
+    }
+
+    footer{
+      padding: 16px 22px 22px;
+      text-align:center;
+      border-top: 1px solid rgba(212,184,150,.35);
+      font-family:var(--font-sans);
+      font-size:.82rem;
+      opacity:.75;
+    }
+
+    /* Tablet/PC: több levegő, de semmi extra */
+    @media (min-width: 900px){
+      .content{padding-top: 18px}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bg"></div>
+  <div class="grain"></div>
+
+  <main class="wrap">
+    <section class="card" aria-label="Hamarosan oldal">
+      <header>
+        <div class="brand" aria-label="Monogram">
+          <b>K&amp;M</b>
+          <span aria-hidden="true">•</span>
+          <span>2026</span>
+        </div>
+
+        <div class="divider" aria-hidden="true"></div>
+
+        <h1>Hamarosan<span class="dots" aria-hidden="true"></span></h1>
+        <p class="sub">A részletes esküvői oldal készül.</p>
+      </header>
+
+      <div class="content">
+        <div class="panel" aria-label="Visszaszámláló és naptár">
+          <div class="panel-title">
+            <i class="fa-regular fa-clock"></i>
+            <span>Visszaszámláló</span>
+          </div>
+
+          <div class="countdown" id="countdown">
+            <div class="box"><div class="num" id="d">0</div><div class="lbl">Nap</div></div>
+            <div class="box"><div class="num" id="h">00</div><div class="lbl">Óra</div></div>
+            <div class="box"><div class="num" id="m">00</div><div class="lbl">Perc</div></div>
+            <div class="box"><div class="num" id="s">00</div><div class="lbl">Másodperc</div></div>
+          </div>
+
+          <div class="actions" aria-label="Naptárba mentés">
+            <a class="btn btn-primary" href="#" id="btnCalendar">
+              <i class="fa-regular fa-calendar-plus"></i>
+              <span>Naptárba mentem</span>
+            </a>
+          </div>
+
+          <div class="note" aria-label="Dátum információ">
+            2026. augusztus 7.
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        &copy; 2026 Kata &amp; Marci • Esküvői oldal (hamarosan)
+      </footer>
+    </section>
+  </main>
+
+  <script>
+    // ==========================================
+    // IDŐZÓNA: Budapest (Europe/Budapest)
+    // - A visszaszámláló és a naptárfájl is ehhez igazodik.
+    // - Az esküvő időpontja: 2026-08-07 16:30 (Budapest)
+    // ==========================================
+
+    const TZ = "Europe/Budapest"; // Időzóna konstans.
+
+    // Esküvő dátum (Budapest helyi idő) -> Date objektummá alakítás "rendes" módon:
+    // 1) készítünk egy "lokális" Date-et, mintha a felhasználó helyi ideje lenne 16:30
+    // 2) majd a formatToParts alapján kiszámoljuk a TZ szerinti "valódi" pillanatot
+    // Így bárhonnan nézik, a célpont ugyanaz a Budapest szerinti időpont marad.
+
+    const WEDDING = { year: 2026, month: 8, day: 7, hour: 16, minute: 30, second: 0 }; // Esküvő dátum komponensek.
+
+    function makeUtcTimestampForZonedTime(zoned) { // Europe/Budapest szerinti időpontból UTC timestampet készítünk.
+      // Létrehozunk egy "naiv" UTC dátumot ugyanazokkal a számokkal.
+      const naiveUtc = Date.UTC(zoned.year, zoned.month - 1, zoned.day, zoned.hour, zoned.minute, zoned.second);
+
+      // Megnézzük, hogy a naiveUtc pillanatot a TZ-ben milyen "óra" alapján látnánk.
+      const dtf = new Intl.DateTimeFormat("en-US", {
+        timeZone: TZ,
+        year: "numeric", month: "2-digit", day: "2-digit",
+        hour: "2-digit", minute: "2-digit", second: "2-digit",
+        hour12: false
+      });
+
+      const parts = dtf.formatToParts(new Date(naiveUtc)); // Szétbontjuk komponensekre.
+      const get = (type) => parts.find(p => p.type === type)?.value; // Segédfüggvény a komponensekhez.
+
+      const asSeen = { // Amit a naiveUtc pillanatra a TZ "mutat".
+        year: Number(get("year")),
+        month: Number(get("month")),
+        day: Number(get("day")),
+        hour: Number(get("hour")),
+        minute: Number(get("minute")),
+        second: Number(get("second"))
+      };
+
+      // Különbség (percben) a kívánt TZ-idő (WEDDING) és a naiveUtc által "mutatott" TZ-idő között.
+      const desired = Date.UTC(zoned.year, zoned.month - 1, zoned.day, zoned.hour, zoned.minute, zoned.second);
+      const seen = Date.UTC(asSeen.year, asSeen.month - 1, asSeen.day, asSeen.hour, asSeen.minute, asSeen.second);
+
+      // A naiveUtc-hoz hozzáadjuk a különbséget, így megkapjuk a helyes UTC pillanatot.
+      return naiveUtc + (desired - seen);
+    }
+
+    const weddingUtcMs = makeUtcTimestampForZonedTime(WEDDING); // Esküvő célidő UTC ms-ban.
+
+    function pad2(n){ return String(n).padStart(2, "0"); } // 2 számjegyes formázás.
+
+    function tick(){ // Visszaszámláló frissítés.
+      const now = Date.now(); // Jelen pillanat.
+      const diff = weddingUtcMs - now; // Hátralévő idő.
+
+      if (diff <= 0) { // Ha eljött / elmúlt.
+        document.getElementById("countdown").innerHTML =
+          '<div class="box" style="flex:1 1 100%;max-width:none"><div class="num" style="font-size:1.4rem">💒</div><div class="lbl" style="letter-spacing:1px">Eljött a nagy nap!</div></div>';
+        clearInterval(tmr); // Interval leállítás.
+        return; // Kilépés.
+      }
+
+      const days = Math.floor(diff / (1000*60*60*24)); // Napok.
+      const hours = Math.floor((diff % (1000*60*60*24)) / (1000*60*60)); // Órák.
+      const mins = Math.floor((diff % (1000*60*60)) / (1000*60)); // Percek.
+      const secs = Math.floor((diff % (1000*60)) / 1000); // Másodpercek.
+
+      document.getElementById("d").textContent = days; // Nap.
+      document.getElementById("h").textContent = pad2(hours); // Óra.
+      document.getElementById("m").textContent = pad2(mins); // Perc.
+      document.getElementById("s").textContent = pad2(secs); // Mp.
+    }
+
+    tick(); // Azonnali frissítés.
+    const tmr = setInterval(tick, 1000); // 1 mp-enként.
+
+    // ==========================================
+    // ICS (naptárfájl) generálás
+    // - DTSTART/DTEND: UTC (Z) formátum
+    // - Megjegyzésben jelezzük: Budapest idő szerint 16:30
+    // ==========================================
+
+    function toICSDateUTC(ms){ // UTC ms -> YYYYMMDDTHHMMSSZ
+      const d = new Date(ms); // Dátum objektum.
+      const y = d.getUTCFullYear(); // Év.
+      const mo = pad2(d.getUTCMonth() + 1); // Hó.
+      const da = pad2(d.getUTCDate()); // Nap.
+      const h = pad2(d.getUTCHours()); // Óra.
+      const mi = pad2(d.getUTCMinutes()); // Perc.
+      const s = pad2(d.getUTCSeconds()); // Mp.
+      return `${y}${mo}${da}T${h}${mi}${s}Z`; // ICS formátum.
+    }
+
+    document.getElementById("btnCalendar").addEventListener("click", (e) => { // Naptár gomb.
+      e.preventDefault(); // Ne navigáljon.
+
+      const start = weddingUtcMs; // Kezdés.
+      const end = weddingUtcMs + 4 * 60 * 60 * 1000; // +4 óra (állítható).
+
+      const summary = "Kata & Marci Esküvő"; // Esemény címe.
+      const location = "Babót, Sport u. 10, 9351"; // Helyszín (később átírható).
+      const description = "Időpont: 2026-08-07 16:30 (Europe/Budapest)."; // Leírás.
+
+      const ics =
+`BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//KataMarci//SaveTheDate//HU
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:${Date.now()}@katamarci
+DTSTAMP:${toICSDateUTC(Date.now())}
+DTSTART:${toICSDateUTC(start)}
+DTEND:${toICSDateUTC(end)}
+SUMMARY:${summary}
+LOCATION:${location}
+DESCRIPTION:${description}
+END:VEVENT
+END:VCALENDAR`;
+
+      const blob = new Blob([ics], {type:"text/calendar;charset=utf-8"}); // ICS blob.
+      const url = URL.createObjectURL(blob); // Blob URL.
+
+      const a = document.createElement("a"); // Letöltés indítása.
+      a.href = url; // URL.
+      a.download = "kata-marci-eskuvo.ics"; // Fájlnév.
+      document.body.appendChild(a); // DOM-ba.
+      a.click(); // Kattintás szimulálása.
+      a.remove(); // DOM-ból ki.
+
+      setTimeout(()=> URL.revokeObjectURL(url), 2000); // URL felszabadítás.
+
+      console.log("%cNaptárfájl generálva (Budapest időponthoz igazítva).", "color:#B48B58;font-weight:700"); // Log.
+    });
+  </script>
+</body>
+</html>
