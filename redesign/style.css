@@ -573,7 +573,7 @@ section { padding: var(--section-padding); position: relative; }
    HELYSZÍNEK (Bento Grid)
    ======================================== */
 
-.venues-section { background-color: var(--white); }
+.venues-section { background-color: var(--cream); }
 .venues-grid {
     display: grid; 
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -707,7 +707,7 @@ section { padding: var(--section-padding); position: relative; }
 /* ========================================
    GALÉRIA (Masonry hangulat)
    ======================================== */
-.gallery-section { background-color: var(--cream); }
+.gallery-section { background-color: var(--white); }
 
 .gallery-grid { 
     display: grid;
@@ -758,7 +758,7 @@ section { padding: var(--section-padding); position: relative; }
 /* ========================================
    SZÁLLÁS (Clean Card)
    ======================================== */
-.accommodation-section { background-color: var(--white); }
+.accommodation-section { background-color: var(--cream); }
 
 .accommodation-grid {
     display: grid;
@@ -855,7 +855,7 @@ section { padding: var(--section-padding); position: relative; }
 /* ========================================
    AJÁNDÉK (Elegáns Keretes)
    ======================================== */
-.gift-section { background-color: var(--cream); }
+.gift-section { background-color: var(--white); }
 .gift-content {
     background: var(--white);
     padding: 60px;
