@@ -859,4 +859,481 @@ section { padding: var(--section-padding); position: relative; }
 .gift-content {
     background: var(--white);
     padding: 60px;
-    border-radius: va
+    border-radius: var(--card-radius);
+    box-shadow: var(--shadow-soft);
+    border: 1px solid var(--gold); /* Vékony arany keret */
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+/* Díszítő elem a sarkokba */
+.gift-content::before, .gift-content::after {
+    content: ''; position: absolute; width: 20px; height: 20px;
+    border-color: var(--gold); border-style: solid;
+    transition: all 0.3s;
+}
+.gift-content::before { top: 10px; left: 10px; border-width: 1px 0 0 1px; }
+.gift-content::after { bottom: 10px; right: 10px; border-width: 0 1px 1px 0; }
+
+.gift-message {
+    text-align: center;
+    margin-bottom: 40px;
+}
+.gift-message i { 
+    color: var(--gold); 
+    font-size: 3rem; 
+    margin-bottom: 20px; 
+    display: block;
+}
+.gift-message p {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    color: var(--dark-brown);
+    margin-bottom: 15px;
+}
+.gift-subtitle {
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    color: var(--dark-brown);
+    opacity: 0.7;
+    margin-top: 10px;
+}
+
+.gift-options { 
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    margin-top: 40px; 
+    gap: 20px; 
+}
+.gift-option { 
+    background: var(--cream);
+    padding: 40px 30px;
+    border-radius: var(--card-radius);
+    text-align: center;
+    box-shadow: none; 
+    border: 1px solid #eee;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.gift-option:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-soft);
+}
+
+.gift-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: var(--white);
+    border: 2px solid var(--gold);
+    color: var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 1.8rem;
+}
+.gift-option h3 {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    color: var(--dark-brown);
+    margin-bottom: 15px;
+}
+.gift-option p {
+    font-size: 0.95rem;
+    color: var(--dark-brown);
+    opacity: 0.8;
+    line-height: 1.7;
+}
+
+/* ========================================
+   RSVP (Lendületes Befejezés)
+   ======================================== */
+.rsvp-section {
+    /* Parallax háttér a drámai hatáshoz */
+    background: url('rsvp-bg.jpg') center/cover fixed no-repeat;
+    position: relative;
+    padding: 140px 0;
+}
+/* Sötétítő réteg */
+.rsvp-section::before {
+    content: ''; position: absolute; inset: 0;
+    background: rgba(44, 36, 32, 0.6);
+}
+
+.rsvp-section .container { position: relative; z-index: 2; }
+
+.rsvp-section .section-title { color: var(--white); }
+.rsvp-section .section-subtitle { color: var(--light-gold); opacity: 1; }
+
+.rsvp-content {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 40px;
+    border-radius: var(--card-radius);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.rsvp-info { 
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px; 
+}
+.rsvp-contact { 
+    background: var(--cream);
+    padding: 30px;
+    border-radius: var(--card-radius);
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.rsvp-contact:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-soft);
+}
+.rsvp-contact i {
+    color: var(--gold);
+    font-size: 1.5rem;
+    margin-top: 5px;
+    flex-shrink: 0;
+}
+.rsvp-contact div {
+    flex: 1;
+}
+.rsvp-contact h3 {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--gold);
+    margin-bottom: 8px;
+}
+.rsvp-contact a,
+.rsvp-contact p {
+    font-size: 0.95rem;
+    color: var(--dark-brown);
+    text-decoration: none;
+    line-height: 1.6;
+}
+.rsvp-contact a:hover {
+    color: var(--gold);
+}
+
+.rsvp-note {
+    background: var(--light-gold);
+    padding: 20px 25px;
+    border-radius: var(--card-radius);
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+.rsvp-note i {
+    color: var(--dark-brown);
+    font-size: 1.3rem;
+    margin-top: 3px;
+    flex-shrink: 0;
+}
+.rsvp-note p {
+    font-size: 0.95rem;
+    color: var(--dark-brown);
+    line-height: 1.7;
+}
+
+.rsvp-form-wrap { 
+    background: transparent; 
+    box-shadow: none; 
+    padding: 0;
+    border-radius: var(--card-radius);
+    overflow: hidden;
+}
+.rsvp-form-wrap iframe {
+    width: 100%;
+    height: 877px;
+    border: none;
+    border-radius: var(--card-radius);
+}
+
+/* ========================================
+   FELTÖLTÉS (Minimalista Lebegő)
+   ======================================== */
+.upload-section { background-color: var(--cream); }
+.upload-card {
+    background: var(--dark-brown); /* Fordított színek */
+    color: var(--cream);
+    padding: 60px 40px;
+    box-shadow: var(--shadow-soft);
+    border-radius: var(--card-radius);
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+.upload-icon { 
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1); 
+    border: 2px solid rgba(255,255,255,0.2);
+    color: var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 30px;
+    font-size: 2.5rem;
+}
+.upload-title { 
+    font-family: var(--font-serif);
+    color: var(--gold); 
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+.upload-text { 
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin-bottom: 30px;
+}
+.upload-btn { 
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--white); 
+    color: var(--dark-brown);
+    padding: 14px 32px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: all 0.4s ease;
+    margin-bottom: 20px;
+}
+.upload-btn:hover { 
+    background: var(--gold); 
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(180, 139, 88, 0.3);
+}
+.upload-hint { 
+    font-size: 0.9rem;
+    opacity: 0.6;
+    line-height: 1.7;
+}
+.upload-soon {
+    color: var(--gold);
+    font-weight: 600;
+}
+
+/* ========================================
+   FOOTER (Grand Finale)
+   ======================================== */
+.footer {
+    background-color: var(--black);
+    color: var(--cream);
+    padding: 100px 0 30px;
+    text-align: center;
+}
+
+.footer-content {
+    margin-bottom: 40px;
+}
+
+.footer-logo h2 {
+    font-family: var(--font-script);
+    font-size: 4rem;
+    margin-bottom: 10px;
+    color: var(--gold);
+}
+.footer-logo p {
+    font-family: var(--font-sans);
+    letter-spacing: 5px; 
+    text-transform: uppercase;
+    font-size: 0.85rem; 
+    opacity: 0.6;
+}
+
+.footer-social { 
+    margin: 40px 0; 
+    font-family: var(--font-serif); 
+    font-size: 1.5rem; 
+    font-style: italic;
+    color: var(--cream);
+    opacity: 0.8;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 30px; 
+    margin-top: 60px;
+    opacity: 0.4; 
+    font-size: 0.8rem;
+}
+
+/* ========================================
+   RESZPONZÍV KIEGÉSZÍTÉSEK
+   ======================================== */
+@media (max-width: 1024px) {
+    .nav-menu a {
+        font-size: 0.65rem;
+        gap: 8px;
+        letter-spacing: 1px;
+    }
+    
+    .hero-content {
+        padding: 80px 20px 20px 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --section-padding: 80px 0;
+        --container-padding: 0 20px;
+    }
+    
+    .section-title { 
+        font-size: 2.5rem; 
+    }
+    
+    .hero {
+        background-attachment: scroll;
+    }
+    
+    .hero-content {
+        padding: 100px 20px 40px 20px;
+        text-align: center;
+    }
+    
+    .hero-panel {
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+    
+    .hero-name { 
+        font-size: clamp(3.5rem, 12vw, 5rem);
+        text-align: center;
+    }
+    
+    .hero-ampersand {
+        margin: 15px 0;
+        font-size: clamp(2.5rem, 7vw, 3.5rem);
+    }
+    
+    .hero-tagline {
+        font-size: 1.2rem;
+    }
+    
+    .hero-kicker {
+        font-size: 0.8rem;
+    }
+    
+    .date-full { 
+        font-size: 3rem; 
+    }
+    
+    .timeline::before { 
+        left: 29px; 
+    }
+    
+    .timeline-content { 
+        margin-left: 50px !important; 
+    }
+    
+    .rsvp-content { 
+        padding: 20px; 
+    }
+    
+    .gift-content { 
+        padding: 40px 25px; 
+    }
+    
+    .countdown {
+        gap: 20px;
+    }
+    
+    .countdown-number {
+        font-size: 2.5rem;
+    }
+    
+    .countdown-item:not(:last-child)::after {
+        right: -10px;
+        height: 30px;
+    }
+    
+    .venues-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 10px;
+    }
+    
+    .gift-options {
+        grid-template-columns: 1fr;
+    }
+    
+    .rsvp-info {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-logo h2 {
+        font-size: 3rem;
+    }
+    
+    .venue-content {
+        padding: 30px 20px;
+    }
+    
+    .venue-name {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content {
+        padding: 80px 15px 30px 15px;
+    }
+    
+    .hero-name { 
+        font-size: clamp(3rem, 12vw, 4rem);
+    }
+    
+    .hero-ampersand { 
+        font-size: clamp(2rem, 7vw, 3rem);
+        margin: 20px 0;
+    }
+    
+    .hero-tagline {
+        font-size: 1rem;
+    }
+    
+    .date-full { 
+        font-size: 2rem; 
+    }
+    
+    .countdown-number {
+        font-size: 2rem;
+    }
+    
+    .timeline-content {
+        padding: 20px 25px;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .venue-content {
+        padding: 25px 15px;
+    }
+    
+    .venue-name {
+        font-size: 1.5rem;
+    }
+}
