@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="hu" data-upload-visible="true">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kata & Marci Esküvő • 2026. augusztus 7.</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&family=Great+Vibes&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Navigáció -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">K & M</div>
+
+            <ul class="nav-menu">
+                <li><a href="#hero">Kezdőlap</a></li>
+                <li><a href="#datum">Dátum</a></li>
+                <li><a href="#program">Program</a></li>
+                <li><a href="#helyszinek">Helyszínek</a></li>
+                <li><a href="#galeria">Galéria</a></li>
+                <li><a href="#szallas">Szállás</a></li>
+                <li><a href="#ajandek">Ajándék</a></li>
+                <li><a href="#rsvp">Visszajelzés</a></li>
+                <li><a href="#feltoltes">Feltöltés</a></li>
+            </ul>
+
+            <div class="nav-toggle" aria-label="Menü megnyitása" aria-expanded="false" aria-controls="nav-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero szekció -->
+    <section id="hero" class="hero">
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+            <div class="hero-panel" role="banner" aria-label="Esküvői meghívó bevezető">
+                <p class="hero-kicker">Szeretettel meghívunk</p>
+
+                <div class="hero-names" aria-label="A pár nevei">
+                    <span class="hero-name bride-name">Kata</span>
+                    <span class="hero-ampersand" aria-hidden="true">&</span>
+                    <span class="hero-name groom-name">Marci</span>
+                </div>
+
+                <p class="hero-tagline">életünk egyik legszebb napjára!</p>
+
+                <div class="hero-date-chip" aria-label="Dátum">
+                    <i class="fa-regular fa-calendar"></i>
+                    <span>2026. augusztus 7. • péntek</span>
+                </div>
+
+                <a class="hero-cta" href="#datum">
+                    <i class="fa-solid fa-heart"></i>
+                    <span>Részletek</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    
+    <!-- KÉSŐBB IDE (hero alá) áthelyezhető: -->
+    <!-- feltöltés blokk innen -->
+        <!-- IDE KELL ÁTTENNI -->
+    <!-- feltöltés blokk eddig -->
+    
+
+    <!-- Dátum szekció -->
+    <section id="datum" class="section datum-section">
+        <div class="container">
+            <h2 class="section-title">Tartsd szabadon ezt a napot!</h2>
+
+            <!-- (KIVEHETŐ) ORNAMENT - HA NEM TETSZIK: töröld ezt a sort -->
+            <div class="section-ornament" aria-hidden="true"></div>
+            <!-- (KIVEHETŐ) ORNAMENT - VÉGE -->
+
+            <div class="date-display">
+                <div class="date-text">
+                    <span class="date-full">2026. augusztus 7.</span>
+                    <span class="date-day">péntek</span>
+                </div>
+            </div>
+
+            <p class="date-subtitle">Szeretnénk, ha te is velünk lennél életünk egyik legszebb napján!</p>
+
+            <div id="countdown" class="countdown" aria-label="Visszaszámláló az esküvőig">
+                <div class="countdown-item">
+                    <span class="countdown-number" id="days">0</span>
+                    <span class="countdown-label">Nap</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="hours">0</span>
+                    <span class="countdown-label">Óra</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="minutes">0</span>
+                    <span class="countdown-label">Perc</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="seconds">0</span>
+                    <span class="countdown-label">Másodperc</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program szekció -->
+    <section id="program" class="section program-section">
+        <div class="container">
+            <h2 class="section-title">A nap menete</h2>
+
+            <!-- (KIVEHETŐ) ORNAMENT - HA NEM TETSZIK: töröld ezt a sort -->
+            <div class="section-ornament" aria-hidden="true"></div>
+            <!-- (KIVEHETŐ) ORNAMENT - VÉGE -->
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fa-solid fa-shoe-prints"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-time">15:00</h3>
+                        <h4 class="timeline-title">Vőlegény búcsúztatás</h4>
+                        <p class="timeline-meta">
+                            <i class="fa-solid fa-location-dot"></i>
+                            9342, Mihályi, Korona utca 18
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fa-solid fa-ring"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-time">16:00</h3>
+                        <h4 class="timeline-title">Menyasszony búcsúztatás</h4>
+                        <p class="timeline-meta">
+                            <i class="fa-solid fa-location-dot"></i>
+                            9351, Babót, Fő utca 87.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item highlight">
+                    <div class="timeline-icon">
+                        <i class="fa-solid fa-church"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-time">16:30</h3>
+                        <h4 class="timeline-title">Templomi szertartás</h4>
+                        <p class="timeline-meta">
+                            <i class="fa-solid fa-location-dot"></i>
+                            Babóti Római Katolikus Templom
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-time">17:30</h3>
+                        <h4 class="timeline-title">Polgári szertartás</h4>
+                        <p class="timeline-meta">
+                            <i class="fa-solid fa-location-dot"></i>
+                            Halász Vendéglő<br>
+                            9346 Kisfalud, Kossuth utca 59
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fa-solid fa-utensils"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-time">19:00</h3>
+                        <h4 class="timeline-title">Ünnepi vacsora</h4>
+                        <p class="timeline-meta">
+                            <i class="fa-solid fa-location-dot"></i>
+                            Halász Vendéglő<br>
+                            9346 Kisfalud, Kossuth utca 59
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fa-solid fa-music"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-time">24:00</h3>
+                        <h4 class="timeline-title">Menyecske tánc</h4>
+                        <p class="timeline-meta">
+                            <i class="fa-solid fa-location-dot"></i>
+                            (a vacsora helyszínén)
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Helyszínek szekció -->
+    <section id="helyszinek" class="section venues-section">
+        <div class="container">
+            <h2 class="section-title">Helyszínek</h2>
+
+            <!-- (KIVEHETŐ) ORNAMENT - HA NEM TETSZIK: töröld ezt a sort -->
+            <div class="section-ornament" aria-hidden="true"></div>
+            <!-- (KIVEHETŐ) ORNAMENT - VÉGE -->
+
+            <div class="venues-grid">
+                <div class="venue-card">
+                    <div class="venue-image" style="background-image: url('templom.jpg');">
+                        <div class="venue-overlay">
+                            <i class="fa-solid fa-church"></i>
+                        </div>
+                    </div>
+                    <div class="venue-content">
+                        <h3 class="venue-title">Templomi szertartás</h3>
+                        <p class="venue-name">Babóti Római Katolikus Templom</p>
+                        <p class="venue-address">
+                            <i class="fa-solid fa-location-dot"></i>
+                            Babót, Sport u. 10, 9351
+                        </p>
+                        <p class="venue-time">
+                            <i class="fa-regular fa-clock"></i>
+                            16:30
+                        </p>
+                        <a href="https://maps.google.com/?q=Babót,+Sport+u.+10,+9351" target="_blank" class="venue-map-btn" rel="noopener">
+                            <i class="fa-solid fa-map"></i> Térkép megnyitása
+                        </a>
+                    </div>
+                </div>
+
+                <div class="venue-card">
+                    <div class="venue-image" style="background-image: url('halasz1.jpg');">
+                        <div class="venue-overlay">
+                            <i class="fa-solid fa-landmark"></i>
+                        </div>
+                    </div>
+                    <div class="venue-content">
+                        <h3 class="venue-title">Polgári szertartás</h3>
+                        <p class="venue-name">Halász Vendéglő
+                            </p>
+                        <p class="venue-address">
+                            <i class="fa-solid fa-location-dot"></i>
+                            9346 Kisfalud, Kossuth utca 59
+                        </p>
+                        <p class="venue-time">
+                            <i class="fa-regular fa-clock"></i>
+                            17:30
+                        </p>
+                        <a href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x476bf8c0afa5bb3b:0x29c2aa58bdd2ab0d?sa=X&ved=1t:8290&ictx=111" target="_blank" class="venue-map-btn" rel="noopener">
+                            <i class="fa-solid fa-map"></i> Térkép megnyitása
+                        </a>
+                    </div>
+                </div>
+
+                <div class="venue-card">
+                    <div class="venue-image" style="background-image: url('halasz2.jpg');">
+                        <div class="venue-overlay">
+                            <i class="fa-solid fa-champagne-glasses"></i>
+                        </div>
+                    </div>
+                    <div class="venue-content">
+                        <h3 class="venue-title">Vacsora & Mulatság</h3>
+                        <p class="venue-name">Halász Vendéglő</p>
+                        <p class="venue-address">
+                            <i class="fa-solid fa-location-dot"></i>
+                            9346 Kisfalud, Kossuth utca 59
+                        </p>
+                        <p class="venue-time">
+                            <i class="fa-regular fa-clock"></i>
+                            19:00 - hajnalig
+                        </p>
+                        <a href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x476bf8c0afa5bb3b:0x29c2aa58bdd2ab0d?sa=X&ved=1t:8290&ictx=111" target="_blank" class="venue-map-btn" rel="noopener">
+                            <i class="fa-solid fa-map"></i> Térkép megnyitása
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galéria szekció -->
+    <section id="galeria" class="section gallery-section">
+        <div class="container">
+            <h2 class="section-title">A mi történetünk</h2>
+
+            <!-- (KIVEHETŐ) ORNAMENT - HA NEM TETSZIK: töröld ezt a sort -->
+            <div class="section-ornament" aria-hidden="true"></div>
+            <!-- (KIVEHETŐ) ORNAMENT - VÉGE -->
+
+            <p class="section-subtitle">Néhány pillanat közös életünkből</p>
+
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/600/800?random=10" alt="Kata és Marci" loading="lazy" decoding="async">
+                    <div class="gallery-overlay">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/800/600?random=11" alt="Kata és Marci" loading="lazy" decoding="async">
+                    <div class="gallery-overlay">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/600/600?random=12" alt="Kata és Marci" loading="lazy" decoding="async">
+                    <div class="gallery-overlay">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/800/800?random=13" alt="Kata és Marci" loading="lazy" decoding="async">
+                    <div class="gallery-overlay">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/600/800?random=14" alt="Kata és Marci" loading="lazy" decoding="async">
+                    <div class="gallery-overlay">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/800/600?random=15" alt="Kata és Marci" loading="lazy" decoding="async">
+                    <div class="gallery-overlay">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Szállás szekció -->
+    <section id="szallas" class="section accommodation-section">
+        <div class="container">
+            <h2 class="section-title">Szállás</h2>
+
+            <!-- (KIVEHETŐ) ORNAMENT - HA NEM TETSZIK: töröld ezt a sort -->
+            <div class="section-ornament" aria-hidden="true"></div>
+            <!-- (KIVEHETŐ) ORNAMENT - VÉGE -->
+
+            <p class="section-subtitle">Ha esetleg nincs szálllásod, itt a lehetőség, hogy foglalj.</p>
+
+            <div class="accommodation-grid accommodation-grid-single">
+                <div class="accommodation-card">
+                    <div class="accommodation-icon">
+                        <i class="fa-solid fa-hotel"></i>
+                    </div>
+                    <h3 class="accommodation-name">Menta Rooms & Bar</h3>
+                    <p class="accommodation-description">
+                        Mi ezt ajánljuk!
+                    </p>
+                    <p class="accommodation-distance">
+                        <i class="fa-solid fa-location-dot"></i>
+                        Kapuvár, Bercsényi Miklós u. 42, 9330
+                    </p><br>
+
+                    <a href="https://maps.google.com/?q=Kapuvár,+Bercsényi+Miklós+u.+42,+9330" target="_blank" rel="noopener" class="accommodation-btn">
+                        <i class="fa-solid fa-map"></i> Térkép megnyitása
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ajándék szekció -->
+    <section id="ajandek" class="section gift-section">
+        <div class="container">
+            <h2 class="section-title">Ajándék</h2>
+
+            <!-- (KIVEHETŐ) ORNAMENT - HA NEM TETSZIK: töröld ezt a sort -->
+            <div class="section-ornament" aria-hidden="true"></div>
+            <!-- (KIVEHETŐ) ORNAMENT - VÉGE -->
+
+            <div class="gift-content">
+                <div class="gift-message">
+                    <i class="fa-solid fa-gift"></i>
+                    <p>A legnagyobb ajándék számunkra a jelenlétetek!</p>
+                    <p class="gift-subtitle">Ha mégis kedveskedni szeretnétek, az alábbi lehetőségek közül választhattok:</p>
+                </div>
+
+                <div class="gift-options">
+                    <div class="gift-option">
+                        <div class="gift-icon">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <h3>Boríték</h3>
+                        <p>A hagyományos borítékot örömmel fogadjuk, amely segíti új életünk kezdését.</p>
+                    </div>
+
+
+                    <div class="gift-option">
+                        <div class="gift-icon">
+                            <i class="fa-solid fa-plane"></i>
+                        </div>
+                        <h3>Nászút támogatás</h3>
+                        <p>Álmaink nászútjához való hozzájárulást köszönettel fogadjuk.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RSVP szekció -->
+    <section id="rsvp" class="section rsvp-section">
+        <div class="container">
+            <h2 class="section-title">Visszajelzés</h2>
+
+            <!-- (KIVEHETŐ) ORNAMENT - HA NEM TETSZIK: töröld ezt a sort -->
+            <div class="section-ornament" aria-hidden="true"></div>
+            <!-- (KIVEHETŐ) ORNAMENT - VÉGE -->
+
+            <p class="section-subtitle">Kérjük, erősítsd meg részvételedet legkésőbb 2026. július 1-ig!</p>
+
+            <div class="rsvp-content">
+                <div class="rsvp-info">
+                    <div class="rsvp-contact">
+                        <i class="fa-solid fa-envelope"></i>
+                        <div>
+                            <h3>Email</h3>
+                            <a href="mailto:vidakatalin98@gmail.com">vidakatalin98@gmail.com</a>
+                        </div>
+                    </div>
+
+                    <div class="rsvp-contact">
+                        <i class="fa-solid fa-phone"></i>
+                        <div>
+                            <h3>Telefonon</h3>
+                            <p>Kata: +36 30 990 0789</p>
+                            <p>Marci: +36 30 123 7855</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rsvp-note">
+                    <i class="fa-solid fa-circle-info"></i>
+                    <p>Kérjük add meg a visszajelzésedkor a nevedet, hogy hányan jöttök, és hogy van-e valamilyen ételallergiád!</p>
+                </div>
+
+                <!-- GOOGLE FORM HELYE (beágyazva) -->
+                <div class="rsvp-form-wrap" aria-label="Visszajelző űrlap">
+                    <iframe
+                        src="https://docs.google.com/forms/d/e/1FAIpQLSePibX2uEXEm4pmZGLaDaGkOvkwRTDIL5gxUPeXeTDHIFefiw/viewform?embedded=true"
+                        width="640"
+                        height="877"
+                        frameborder="0"
+                        marginheight="0"
+                        marginwidth="0"
+                        loading="lazy"
+                        title="Visszajelzés - Google Form"
+                    >Betöltés…</iframe>
+                </div>
+                <!-- GOOGLE FORM HELYE VÉGE -->
+            </div>
+        </div>
+    </section>
+
+    <!-- feltöltés blokk innen -->
+    <section id="feltoltes" class="section upload-section">
+        <div class="container">
+            <h2 class="section-title">Képek & videók</h2>
+
+            <!-- (KIVEHETŐ) ORNAMENT - HA NEM TETSZIK: töröld ezt a sort -->
+            <div class="section-ornament" aria-hidden="true"></div>
+            <!-- (KIVEHETŐ) ORNAMENT - VÉGE -->
+
+            <div class="upload-card">
+                <div class="upload-icon">
+                    <i class="fa-solid fa-cloud-arrow-up"></i>
+                </div>
+
+                <p class="upload-title">Fotóztál vagy videóztál az esküvőnkön?</p>
+                <p class="upload-text">Nagyon örülnénk, ha megosztanád velünk is! ❤️</p>
+
+                <a class="upload-btn" href="#">
+                    <i class="fa-solid fa-arrow-up-from-bracket"></i>
+                    Feltöltés pCloud-ra
+                </a>
+
+                <p class="upload-hint">
+                    <span class="upload-soon">Hamarosan…</span> Az esküvő után térj vissza ide, és töltsd fel a kedvenc pillanataidat!
+                </p>
+            </div>
+        </div>
+    </section>
+    <!-- feltöltés blokk eddig -->
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>Kata & Marci</h2>
+                    <p>2026. augusztus 7.</p>
+                </div>
+                <div class="footer-social">
+                    <p>Találkozzunk ezen a különleges napon!</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Kata & Marci esküvője • Minden jog fenntartva</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
