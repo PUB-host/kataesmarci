@@ -401,7 +401,7 @@ section { padding: var(--section-padding); position: relative; }
    DÁTUM SZEKCIÓ
    ======================================== */
 
-.datum-section { background-color: var(--cream); }
+.datum-section { background-color: var(--white); }
 
 .date-display {
     text-align: center;
@@ -476,7 +476,7 @@ section { padding: var(--section-padding); position: relative; }
    PROGRAM (Letisztult Idővonal)
    ======================================== */
 
-.program-section { background-color: var(--white); }
+.program-section { background-color: var(--cream); }
 
 .timeline { 
     max-width: 800px; 
@@ -573,7 +573,7 @@ section { padding: var(--section-padding); position: relative; }
    HELYSZÍNEK (Bento Grid)
    ======================================== */
 
-.venues-section { background-color: var(--cream); }
+.venues-section { background-color: var(--white); }
 .venues-grid {
     display: grid; 
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -707,7 +707,7 @@ section { padding: var(--section-padding); position: relative; }
 /* ========================================
    GALÉRIA (Masonry hangulat)
    ======================================== */
-.gallery-section { background-color: var(--white); }
+.gallery-section { background-color: var(--cream); }
 
 .gallery-grid { 
     display: grid;
@@ -758,7 +758,7 @@ section { padding: var(--section-padding); position: relative; }
 /* ========================================
    SZÁLLÁS (Clean Card)
    ======================================== */
-.accommodation-section { background-color: var(--cream); }
+.accommodation-section { background-color: var(--white); }
 
 .accommodation-grid {
     display: grid;
@@ -855,7 +855,7 @@ section { padding: var(--section-padding); position: relative; }
 /* ========================================
    AJÁNDÉK (Elegáns Keretes)
    ======================================== */
-.gift-section { background-color: var(--white); }
+.gift-section { background-color: var(--cream); }
 .gift-content {
     background: var(--white);
     padding: 60px;
@@ -1061,7 +1061,7 @@ section { padding: var(--section-padding); position: relative; }
 /* ========================================
    FELTÖLTÉS (Minimalista Lebegő)
    ======================================== */
-.upload-section { background-color: var(--cream); }
+.upload-section { background-color: var(--white); }
 .upload-card {
     background: var(--dark-brown); /* Fordított színek */
     color: var(--cream);
