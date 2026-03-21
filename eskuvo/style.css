@@ -125,7 +125,6 @@ section {
     color: var(--gold);
 }
 
-/* AKTÍV NAV LINK STÍLUS */
 .nav-menu a.active {
     color: var(--gold);
 }
@@ -147,7 +146,6 @@ section {
     transition: all 0.3s ease;
 }
 
-/* MOBIL/TABLET NAVBAR AUTO-ELREJTÉS */
 @media (max-width: 1024px) {
     #navbar {
         will-change: transform;
@@ -337,9 +335,6 @@ section {
 
 /* ========================================
    (KIVEHETŐ) DISZKRÉT ORNAMENT
-   Ha nem tetszik:
-   - HTML-ben töröld a <div class="section-ornament"> elemeket
-   - És ezt a CSS blokkot is töröld
    ======================================== */
 
 .section-ornament {
@@ -404,7 +399,6 @@ section {
     color: var(--dark-brown);
 }
 
-/* Visszaszámláló */
 .countdown {
     display: flex;
     justify-content: center;
@@ -544,7 +538,6 @@ section {
     margin-bottom: 10px;
 }
 
-/* Helyszín pill */
 .timeline-meta {
     margin-top: 10px;
     display: inline-flex;
@@ -688,8 +681,8 @@ section {
 
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
     margin-top: 50px;
 }
 
@@ -698,14 +691,22 @@ section {
     overflow: hidden;
     border-radius: 10px;
     cursor: pointer;
-    aspect-ratio: 1;
+    aspect-ratio: 2 / 3;
+}
+
+/* 9. kép: 2 oszlopot foglal el, de megtartja a 2:3 arányt */
+.gallery-item--wide {
+    grid-column: span 2;
+    aspect-ratio: 4 / 3;
 }
 
 .gallery-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center top;
     transition: transform 0.5s ease;
+    image-orientation: from-image;
 }
 
 .gallery-item:hover img {
@@ -1256,7 +1257,6 @@ section {
         font-size: 2rem;
     }
 
-    /* Timeline mobil: fix belógás */
     .timeline::before {
         left: 30px;
     }
@@ -1281,6 +1281,18 @@ section {
         flex-direction: column;
         text-align: center;
         gap: 30px;
+    }
+
+    /* Galéria: 768px alatt 2 oszlop */
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    /* 9. kép mobilon: marad span 2, de aspect-ratio simább */
+    .gallery-item--wide {
+        grid-column: span 2;
+        aspect-ratio: 3 / 2;
     }
 }
 
@@ -1333,5 +1345,20 @@ section {
     .accommodation-grid,
     .gift-options {
         grid-template-columns: 1fr;
+    }
+
+    /* Galéria: 480px alatt 1 oszlop */
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .gallery-item {
+        aspect-ratio: 2 / 3;
+    }
+
+    .gallery-item--wide {
+        grid-column: span 1;
+        aspect-ratio: 2 / 3;
     }
 }
