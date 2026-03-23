@@ -1,793 +1,520 @@
 <!DOCTYPE html>
-<html lang="hu">
+<html lang="hu" data-upload-visible="true">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="noindex, nofollow">
-    <title>Kata & Marci Esküvő • Hamarosan</title>
+    <title>Kata & Marci Esküvő • 2026. augusztus 7.</title>
 
-    <!-- Betűtípusok -->
+    <link rel="stylesheet" href="style.css">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&family=Great+Vibes&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome ikonok -->
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <style>
-        /* ======================================== 
-           CSS VÁLTOZÓK (Az eredeti oldalhoz igazítva)
-           ======================================== */
-        :root {
-            --cream: #F5F0E8;
-            --dark-brown: #765830;
-            --gold: #B48B58;
-            --light-gold: #D4B896;
-            --white: #FFFFFF;
-            --black: #2C2420;
-
-            --font-script: 'Great Vibes', cursive;
-            --font-script-alt: 'Tangerine', cursive;
-            --font-serif: 'Cormorant Garamond', serif;
-            --font-sans: 'Montserrat', sans-serif;
-        }
-
-        /* ======================================== 
-           ALAPBEÁLLÍTÁSOK
-           ======================================== */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html, body {
-            height: 100%;
-            overflow-x: hidden;
-        }
-
-        body {
-            font-family: var(--font-serif);
-            color: var(--dark-brown);
-            background-color: var(--cream);
-            line-height: 1.6;
-            position: relative;
-        }
-
-        /* ======================================== 
-           HÁTTÉR GRADIENS & TEXTÚRA
-           ======================================== */
-        .background-layer {
-            position: fixed;
-            inset: 0;
-            z-index: -2;
-            background: 
-                radial-gradient(circle at 20% 20%, rgba(180, 139, 88, 0.08), transparent 50%),
-                radial-gradient(circle at 80% 30%, rgba(212, 184, 150, 0.06), transparent 55%),
-                radial-gradient(circle at 50% 85%, rgba(118, 88, 48, 0.05), transparent 60%),
-                linear-gradient(135deg, 
-                    rgba(245, 240, 232, 1) 0%, 
-                    rgba(245, 240, 232, 0.97) 40%, 
-                    rgba(245, 240, 232, 1) 100%
-                );
-        }
-
-        /* Finom grain textúra */
-        .grain-overlay {
-            position: fixed;
-            inset: -50%;
-            z-index: -1;
-            opacity: 0.08;
-            pointer-events: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='0.6'/%3E%3C/svg%3E");
-            animation: grain-shift 8s steps(10) infinite;
-        }
-
-        @keyframes grain-shift {
-            0%, 100% { transform: translate(0, 0); }
-            10% { transform: translate(-5%, -10%); }
-            20% { transform: translate(-15%, 5%); }
-            30% { transform: translate(7%, -15%); }
-            40% { transform: translate(-5%, 10%); }
-            50% { transform: translate(15%, 0%); }
-            60% { transform: translate(0%, 15%); }
-            70% { transform: translate(-10%, 0%); }
-            80% { transform: translate(5%, 5%); }
-            90% { transform: translate(10%, -5%); }
-        }
-
-        /* ======================================== 
-           FŐKONTÉNER
-           ======================================== */
-        .main-container {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 30px 20px;
-        }
-
-        /* ======================================== 
-           KÖZPONTI KÁRTYA
-           ======================================== */
-        .content-card {
-            width: min(1000px, 100%);
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-radius: 24px;
-            box-shadow: 
-                0 20px 60px rgba(118, 88, 48, 0.15),
-                0 0 0 1px rgba(212, 184, 150, 0.3);
-            overflow: hidden;
-            position: relative;
-            animation: card-fade-in 0.8s ease-out;
-        }
-
-        @keyframes card-fade-in {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Finom fény effekt a kártya tetején */
-        .content-card::before {
-            content: '';
-            position: absolute;
-            top: -150px;
-            left: -150px;
-            right: -150px;
-            height: 300px;
-            background: radial-gradient(
-                circle at 30% 30%, 
-                rgba(180, 139, 88, 0.12), 
-                transparent 65%
-            );
-            pointer-events: none;
-        }
-
-        /* ======================================== 
-           FEJLÉC
-           ======================================== */
-        .header {
-            padding: clamp(40px, 5vw, 60px) clamp(20px, 4vw, 40px) 30px;
-            text-align: center;
-            position: relative;
-        }
-
-        /* Monogram logó */
-        .logo {
-            display: inline-flex;
-            align-items: center;
-            gap: 16px;
-            padding: 12px 24px;
-            background: rgba(245, 240, 232, 0.7);
-            border: 1px solid rgba(212, 184, 150, 0.5);
-            border-radius: 50px;
-            margin-bottom: 24px;
-            animation: logo-float 3s ease-in-out infinite;
-        }
-
-        @keyframes logo-float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-5px); }
-        }
-
-        .logo-initials {
-            font-family: var(--font-script);
-            font-size: 2.2rem;
-            color: var(--gold);
-            font-weight: 400;
-            line-height: 1;
-        }
-
-        .logo-separator {
-            color: var(--light-gold);
-            opacity: 0.6;
-        }
-
-        .logo-year {
-            font-family: var(--font-sans);
-            font-size: 0.9rem;
-            font-weight: 500;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--dark-brown);
-        }
-
-        /* Díszítő vonal */
-        .divider {
-            width: min(500px, 85%);
-            height: 1px;
-            margin: 24px auto;
-            background: linear-gradient(
-                90deg, 
-                transparent, 
-                rgba(180, 139, 88, 0.5), 
-                transparent
-            );
-        }
-
-        /* Főcím */
-        .main-title {
-            font-family: var(--font-serif);
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 500;
-            color: var(--dark-brown);
-            letter-spacing: 1px;
-            margin-bottom: 12px;
-            line-height: 1.2;
-        }
-
-        /* Animált pontok a "Hamarosan" után */
-        .loading-dots::after {
-            content: '';
-            display: inline-block;
-            width: 1.5em;
-            text-align: left;
-            animation: dots-animation 1.4s infinite steps(4);
-        }
-
-        @keyframes dots-animation {
-            0% { content: ''; }
-            25% { content: '.'; }
-            50% { content: '..'; }
-            75% { content: '...'; }
-            100% { content: ''; }
-        }
-
-        .subtitle {
-            font-family: var(--font-serif);
-            font-size: clamp(1.05rem, 2vw, 1.2rem);
-            font-style: italic;
-            color: var(--dark-brown);
-            opacity: 0.85;
-            margin-top: 8px;
-        }
-
-        /* ======================================== 
-           TARTALOM TERÜLET
-           ======================================== */
-        .content {
-            padding: 20px clamp(20px, 4vw, 40px) clamp(40px, 5vw, 60px);
-        }
-
-        /* Visszaszámláló panel */
-        .countdown-panel {
-            background: rgba(245, 240, 232, 0.6);
-            border: 1px solid rgba(212, 184, 150, 0.4);
-            border-radius: 20px;
-            padding: 30px clamp(16px, 3vw, 28px);
-            margin-bottom: 24px;
-        }
-
-        .panel-header {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            margin-bottom: 24px;
-        }
-
-        .panel-header i {
-            color: var(--gold);
-            font-size: 1.2rem;
-        }
-
-        .panel-title {
-            font-family: var(--font-sans);
-            font-size: 0.95rem;
-            font-weight: 600;
-            letter-spacing: 2.5px;
-            text-transform: uppercase;
-            color: var(--dark-brown);
-        }
-
-        /* Visszaszámláló */
-        .countdown {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 14px;
-            margin-bottom: 24px;
-        }
-
-        .countdown-box {
-            background: rgba(255, 255, 255, 0.8);
-            border: 1px solid rgba(212, 184, 150, 0.35);
-            border-radius: 16px;
-            padding: 20px 16px;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .countdown-box:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(118, 88, 48, 0.12);
-            border-color: rgba(180, 139, 88, 0.5);
-        }
-
-        .countdown-number {
-            font-family: var(--font-serif);
-            font-size: clamp(2rem, 4vw, 2.5rem);
-            font-weight: 600;
-            color: var(--gold);
-            line-height: 1.1;
-            display: block;
-            margin-bottom: 6px;
-        }
-
-        .countdown-label {
-            font-family: var(--font-sans);
-            font-size: 0.85rem;
-            font-weight: 500;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--dark-brown);
-            opacity: 0.75;
-        }
-
-        /* Akciógombok */
-        .action-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            padding: 14px 24px;
-            border-radius: 50px;
-            font-family: var(--font-sans);
-            font-size: 0.95rem;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-            text-decoration: none;
-            border: 1px solid;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            user-select: none;
-        }
-
-        .btn-primary {
-            background: var(--gold);
-            color: var(--white);
-            border-color: var(--gold);
-        }
-
-        .btn-primary:hover {
-            background: var(--dark-brown);
-            border-color: var(--dark-brown);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(118, 88, 48, 0.25);
-        }
-
-        .btn-secondary {
-            background: rgba(255, 255, 255, 0.7);
-            color: var(--dark-brown);
-            border-color: rgba(212, 184, 150, 0.6);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.95);
-            border-color: var(--gold);
-            transform: translateY(-2px);
-        }
-
-        /* Dátum info */
-        .date-info {
-            text-align: center;
-            font-family: var(--font-serif);
-            font-size: 1.05rem;
-            color: var(--dark-brown);
-            opacity: 0.8;
-            margin-top: 16px;
-        }
-
-        .date-info i {
-            color: var(--gold);
-            margin-right: 8px;
-        }
-
-        /* Információs panel */
-        .info-panel {
-            background: rgba(255, 255, 255, 0.5);
-            border: 1px solid rgba(212, 184, 150, 0.3);
-            border-radius: 16px;
-            padding: 24px;
-            text-align: center;
-        }
-
-        .info-panel i {
-            font-size: 2rem;
-            color: var(--gold);
-            margin-bottom: 12px;
-            display: block;
-        }
-
-        .info-text {
-            font-family: var(--font-serif);
-            font-size: 1.05rem;
-            color: var(--dark-brown);
-            line-height: 1.7;
-            margin-bottom: 16px;
-        }
-
-        .info-highlight {
-            font-family: var(--font-sans);
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: var(--gold);
-            letter-spacing: 1px;
-        }
-
-        /* ======================================== 
-           LÁBLÉC
-           ======================================== */
-        .footer {
-            padding: 24px clamp(20px, 4vw, 40px) 28px;
-            text-align: center;
-            border-top: 1px solid rgba(212, 184, 150, 0.3);
-        }
-
-        .footer-text {
-            font-family: var(--font-sans);
-            font-size: 0.85rem;
-            color: var(--dark-brown);
-            opacity: 0.7;
-            letter-spacing: 0.5px;
-        }
-
-        /* ======================================== 
-           RESPONSIVE BREAKPOINTS
-           ======================================== */
-        
-        /* Tablet */
-        @media (max-width: 768px) {
-            .countdown {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .logo-initials {
-                font-size: 1.8rem;
-            }
-
-            .action-buttons {
-                flex-direction: column;
-                align-items: stretch;
-            }
-
-            .btn {
-                width: 100%;
-                max-width: 300px;
-                margin: 0 auto;
-            }
-        }
-
-        /* Mobil */
-        @media (max-width: 480px) {
-            .main-container {
-                padding: 20px 12px;
-            }
-
-            .content-card {
-                border-radius: 16px;
-            }
-
-            .header {
-                padding-top: 30px;
-            }
-
-            .logo {
-                padding: 10px 20px;
-                gap: 12px;
-            }
-
-            .countdown-panel {
-                padding: 20px 14px;
-            }
-
-            .countdown-number {
-                font-size: 1.8rem;
-            }
-
-            .countdown-label {
-                font-size: 0.75rem;
-            }
-        }
-
-        /* ======================================== 
-           EGYÉB ANIMÁCIÓK
-           ======================================== */
-        
-        /* Pulsating szív a visszaszámlálónál */
-        .heart-icon {
-            animation: heart-beat 2s ease-in-out infinite;
-        }
-
-        @keyframes heart-beat {
-            0%, 100% {
-                transform: scale(1);
-            }
-            10%, 30% {
-                transform: scale(1.1);
-            }
-            20%, 40% {
-                transform: scale(1);
-            }
-        }
-    </style>
 </head>
 
 <body>
-    <!-- Háttér rétegek -->
-    <div class="background-layer"></div>
-    <div class="grain-overlay"></div>
+    <!-- Navigáció -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">K & M</div>
 
-    <!-- Főkonténer -->
-    <main class="main-container">
-        <article class="content-card">
-            <!-- Fejléc -->
-            <header class="header">
-                <div class="logo" role="banner">
-                    <span class="logo-initials">K & M</span>
-                    <span class="logo-separator" aria-hidden="true">•</span>
-                    <span class="logo-year">2026</span>
+            <ul class="nav-menu">
+                <li><a href="#hero">Kezdőlap</a></li>
+                <li><a href="#datum">Dátum</a></li>
+                <li><a href="#program">Program</a></li>
+                <li><a href="#helyszinek">Helyszínek</a></li>
+                <li><a href="#galeria">Galéria</a></li>
+                <li><a href="#szallas">Szállás</a></li>
+                <li><a href="#ajandek">Ajándék</a></li>
+                <li><a href="#rsvp">Visszajelzés</a></li>
+                <li><a href="#feltoltes">Feltöltés</a></li>
+            </ul>
+
+            <div class="nav-toggle" aria-label="Menü megnyitása" aria-expanded="false" aria-controls="nav-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero szekció -->
+    <section id="hero" class="hero">
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+            <div class="hero-panel" role="banner" aria-label="Esküvői meghívó bevezető">
+                <p class="hero-kicker">Szeretettel meghívunk</p>
+
+                <div class="hero-names" aria-label="A pár nevei">
+                    <span class="hero-name bride-name">Kata</span>
+                    <span class="hero-ampersand" aria-hidden="true">&</span>
+                    <span class="hero-name groom-name">Marci</span>
                 </div>
 
-                <div class="divider" aria-hidden="true"></div>
+                <p class="hero-tagline">életünk egyik legszebb napjára!</p>
 
-                <h1 class="main-title">
-                    Hamarosan<span class="loading-dots" aria-hidden="true"></span>
-                </h1>
-                <p class="subtitle">A részletes esküvői oldal készül.</p>
-            </header>
+                <div class="hero-date-chip" aria-label="Dátum">
+                    <i class="fa-regular fa-calendar"></i>
+                    <span>2026. augusztus 7. • péntek</span>
+                </div>
 
-            <!-- Tartalom -->
-            <div class="content">
-                <!-- Visszaszámláló panel -->
-                <section class="countdown-panel" aria-label="Visszaszámláló az esküvőig">
-                    <div class="panel-header">
-                        <i class="fa-regular fa-clock heart-icon"></i>
-                        <h2 class="panel-title">Visszaszámláló</h2>
-                    </div>
+                <a class="hero-cta" href="#datum">
+                    <i class="fa-solid fa-heart"></i>
+                    <span>Részletek</span>
+                </a>
+            </div>
+        </div>
+    </section>
 
-                    <div class="countdown" id="countdown" role="timer">
-                        <div class="countdown-box">
-                            <span class="countdown-number" id="days">0</span>
-                            <span class="countdown-label">Nap</span>
-                        </div>
-                        <div class="countdown-box">
-                            <span class="countdown-number" id="hours">00</span>
-                            <span class="countdown-label">Óra</span>
-                        </div>
-                        <div class="countdown-box">
-                            <span class="countdown-number" id="minutes">00</span>
-                            <span class="countdown-label">Perc</span>
-                        </div>
-                        <div class="countdown-box">
-                            <span class="countdown-number" id="seconds">00</span>
-                            <span class="countdown-label">Másodperc</span>
-                        </div>
-                    </div>
+    
 
-                    <div class="action-buttons">
-                        <a href="#" class="btn btn-primary" id="btnCalendar">
-                            <i class="fa-regular fa-calendar-plus"></i>
-                            <span>Naptárba mentem</span>
-                        </a>
+    <!-- Dátum szekció -->
+    <section id="datum" class="section datum-section">
+        <div class="container">
+            <h2 class="section-title">Tartsd szabadon ezt a napot!</h2>
 
-                    </div>
+            <div class="section-ornament" aria-hidden="true"></div>
 
-                    <p class="date-info">
-                        <i class="fa-regular fa-calendar"></i>
-                        <strong>2026. augusztus 7.</strong> • péntek
-                    </p>
-                </section>
-
-                <!-- Információs panel -->
-                <section class="info-panel" aria-label="További információ">
-                    <i class="fa-solid fa-heart heart-icon"></i>
-                    <p class="info-text">
-                        Szeretettel várunk mindenkit életünk egyik legszebb napján!
-                        <br>
-                        A teljes részletekkel hamarosan jelentkezünk.
-                    </p>
-                    <p class="info-highlight">
-                        Kata & Marci
-                    </p>
-                </section>
+            <div class="date-display">
+                <div class="date-text">
+                    <span class="date-full">2026. augusztus 7.</span>
+                    <span class="date-day">péntek</span>
+                </div>
             </div>
 
-            <!-- Lábléc -->
-            <footer class="footer">
-                <p class="footer-text">
-                    &copy; 2026 Kata & Marci • Esküvői oldal
-                </p>
-            </footer>
-        </article>
-    </main>
+            <p class="date-subtitle">Szeretnénk, ha te is velünk lennél életünk egyik legszebb napján!</p>
 
-    <script>
-        // ==========================================
-        // VISSZASZÁMLÁLÓ LOGIKA
-        // ==========================================
+            <div id="countdown" class="countdown" aria-label="Visszaszámláló az esküvőig">
+                <div class="countdown-item">
+                    <span class="countdown-number" id="days">0</span>
+                    <span class="countdown-label">Nap</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="hours">0</span>
+                    <span class="countdown-label">Óra</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="minutes">0</span>
+                    <span class="countdown-label">Perc</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="seconds">0</span>
+                    <span class="countdown-label">Másodperc</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        const TIMEZONE = "Europe/Budapest";
-        const WEDDING = { 
-            year: 2026, 
-            month: 8, 
-            day: 7, 
-            hour: 16, 
-            minute: 30, 
-            second: 0 
-        };
+    <!-- Program szekció -->
+    <section id="program" class="section program-section">
+        <div class="container">
+            <h2 class="section-title">A nap menete</h2>
 
-        // Budapest időpontból UTC timestamp készítése
-        function makeUtcTimestampForZonedTime(zoned) {
-            const naiveUtc = Date.UTC(
-                zoned.year, 
-                zoned.month - 1, 
-                zoned.day, 
-                zoned.hour, 
-                zoned.minute, 
-                zoned.second
-            );
+            <div class="section-ornament" aria-hidden="true"></div>
 
-            const dtf = new Intl.DateTimeFormat("en-US", {
-                timeZone: TIMEZONE,
-                year: "numeric",
-                month: "2-digit",
-                day: "2-digit",
-                hour: "2-digit",
-                minute: "2-digit",
-                second: "2-digit",
-                hour12: false
-            });
-
-            const parts = dtf.formatToParts(new Date(naiveUtc));
-            const get = (type) => parts.find(p => p.type === type)?.value;
-
-            const asSeen = {
-                year: Number(get("year")),
-                month: Number(get("month")),
-                day: Number(get("day")),
-                hour: Number(get("hour")),
-                minute: Number(get("minute")),
-                second: Number(get("second"))
-            };
-
-            const desired = Date.UTC(
-                zoned.year, 
-                zoned.month - 1, 
-                zoned.day, 
-                zoned.hour, 
-                zoned.minute, 
-                zoned.second
-            );
-            const seen = Date.UTC(
-                asSeen.year, 
-                asSeen.month - 1, 
-                asSeen.day, 
-                asSeen.hour, 
-                asSeen.minute, 
-                asSeen.second
-            );
-
-            return naiveUtc + (desired - seen);
-        }
-
-        const weddingUtcMs = makeUtcTimestampForZonedTime(WEDDING);
-
-        // 2 számjegyű formázás
-        function pad2(n) {
-            return String(n).padStart(2, "0");
-        }
-
-        // Visszaszámláló frissítése
-        function updateCountdown() {
-            const now = Date.now();
-            const diff = weddingUtcMs - now;
-
-            const countdownEl = document.getElementById("countdown");
-            
-            if (diff <= 0) {
-                countdownEl.innerHTML = `
-                    <div class="countdown-box" style="grid-column: 1 / -1;">
-                        <span class="countdown-number" style="font-size: 2rem;">💒</span>
-                        <span class="countdown-label" style="letter-spacing: 1px;">Eljött a nagy nap!</span>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fa-solid fa-shoe-prints"></i>
                     </div>
-                `;
-                clearInterval(timer);
-                return;
-            }
+                    <div class="timeline-content">
+                        <h3 class="timeline-time">15:00</h3>
+                        <h4 class="timeline-title">Vőlegény búcsúztatás</h4>
+                        <p class="timeline-meta">
+                            <i class="fa-solid fa-location-dot"></i>
+                            9342, Mihályi, Korona utca 18
+                        </p>
+                    </div>
+                </div>
 
-            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fa-solid fa-ring"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-time">16:00</h3>
+                        <h4 class="timeline-title">Menyasszony búcsúztatás</h4>
+                        <p class="timeline-meta">
+                            <i class="fa-solid fa-location-dot"></i>
+                            9351, Babót, Fő utca 87.
+                        </p>
+                    </div>
+                </div>
 
-            document.getElementById("days").textContent = days;
-            document.getElementById("hours").textContent = pad2(hours);
-            document.getElementById("minutes").textContent = pad2(minutes);
-            document.getElementById("seconds").textContent = pad2(seconds);
-        }
+                <div class="timeline-item highlight">
+                    <div class="timeline-icon">
+                        <i class="fa-solid fa-church"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-time">16:30</h3>
+                        <h4 class="timeline-title">Templomi szertartás</h4>
+                        <p class="timeline-meta">
+                            <i class="fa-solid fa-location-dot"></i>
+                            Babóti Szent Mihály Templom
+                        </p>
+                    </div>
+                </div>
 
-        updateCountdown();
-        const timer = setInterval(updateCountdown, 1000);
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-time">17:30</h3>
+                        <h4 class="timeline-title">Polgári szertartás</h4>
+                        <p class="timeline-meta">
+                            <i class="fa-solid fa-location-dot"></i>
+                            Halász Vendéglő<br>
+                            9346 Kisfalud, Kossuth utca 59
+                        </p>
+                    </div>
+                </div>
 
-        // ==========================================
-        // NAPTÁR FÁJL GENERÁLÁS (ICS)
-        // ==========================================
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fa-solid fa-utensils"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-time">19:00</h3>
+                        <h4 class="timeline-title">Ünnepi vacsora</h4>
+                        <p class="timeline-meta">
+                            <i class="fa-solid fa-location-dot"></i>
+                            Halász Vendéglő<br>
+                            9346 Kisfalud, Kossuth utca 59
+                        </p>
+                    </div>
+                </div>
 
-        function toICSDateUTC(ms) {
-            const d = new Date(ms);
-            const y = d.getUTCFullYear();
-            const mo = pad2(d.getUTCMonth() + 1);
-            const da = pad2(d.getUTCDate());
-            const h = pad2(d.getUTCHours());
-            const mi = pad2(d.getUTCMinutes());
-            const s = pad2(d.getUTCSeconds());
-            return `${y}${mo}${da}T${h}${mi}${s}Z`;
-        }
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fa-solid fa-music"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-time">24:00</h3>
+                        <h4 class="timeline-title">Menyecske tánc</h4>
+                        <p class="timeline-meta">
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        document.getElementById("btnCalendar").addEventListener("click", (e) => {
-            e.preventDefault();
+    <!-- Helyszínek szekció -->
+    <section id="helyszinek" class="section venues-section">
+        <div class="container">
+            <h2 class="section-title">Helyszínek</h2>
 
-            const start = weddingUtcMs;
-            const end = weddingUtcMs + 5 * 60 * 60 * 1000; // +5 óra esemény időtartam
+            <div class="section-ornament" aria-hidden="true"></div>
 
-            const summary = "Kata & Marci Esküvő";
-            const location = "Babót, Sport u. 10, 9351";
-            const description = "Kata és Marci esküvője. Időpont: 2026-08-07 16:30 (Budapest idő szerint).";
+            <div class="venues-grid">
+                <div class="venue-card">
+                    <div class="venue-image" style="background-image: url('templom.jpg');">
+                        <div class="venue-overlay">
+                            <i class="fa-solid fa-church"></i>
+                        </div>
+                    </div>
+                    <div class="venue-content">
+                        <h3 class="venue-title">Templomi szertartás</h3>
+                        <p class="venue-name">Babóti Szent Mihály Templom</p>
+                        <p class="venue-address">
+                            <i class="fa-solid fa-location-dot"></i>
+                            Babót, Sport u. 10, 9351
+                        </p>
+                        <p class="venue-time">
+                            <i class="fa-regular fa-clock"></i>
+                            16:30
+                        </p>
+                        <a href="https://maps.app.goo.gl/oP7WM5fRdeV992vC8" target="_blank" class="venue-map-btn" rel="noopener">
+                            <i class="fa-solid fa-map"></i> Térkép megnyitása
+                        </a>
+                    </div>
+                </div>
 
-            const ics = `BEGIN:VCALENDAR
-VERSION:2.0
-PRODID:-//KataMarci//SaveTheDate//HU
-CALSCALE:GREGORIAN
-METHOD:PUBLISH
-BEGIN:VEVENT
-UID:${Date.now()}@katamarci-eskuvo
-DTSTAMP:${toICSDateUTC(Date.now())}
-DTSTART:${toICSDateUTC(start)}
-DTEND:${toICSDateUTC(end)}
-SUMMARY:${summary}
-LOCATION:${location}
-DESCRIPTION:${description}
-STATUS:CONFIRMED
-END:VEVENT
-END:VCALENDAR`;
+                <div class="venue-card">
+                    <div class="venue-image" style="background-image: url('halasz1.jpg');">
+                        <div class="venue-overlay">
+                            <i class="fa-solid fa-landmark"></i>
+                        </div>
+                    </div>
+                    <div class="venue-content">
+                        <h3 class="venue-title">Polgári szertartás</h3>
+                        <p class="venue-name">Halász Vendéglő
+                            </p>
+                        <p class="venue-address">
+                            <i class="fa-solid fa-location-dot"></i>
+                            9346 Kisfalud, Kossuth utca 59
+                        </p>
+                        <p class="venue-time">
+                            <i class="fa-regular fa-clock"></i>
+                            17:30
+                        </p>
+                        <a href="https://maps.app.goo.gl/qsiiAmknw7dHy5io7" target="_blank" class="venue-map-btn" rel="noopener">
+                            <i class="fa-solid fa-map"></i> Térkép megnyitása
+                        </a>
+                    </div>
+                </div>
 
-            const blob = new Blob([ics], { type: "text/calendar;charset=utf-8" });
-            const url = URL.createObjectURL(blob);
+                <div class="venue-card">
+                    <div class="venue-image" style="background-image: url('halasz2.jpg');">
+                        <div class="venue-overlay">
+                            <i class="fa-solid fa-champagne-glasses"></i>
+                        </div>
+                    </div>
+                    <div class="venue-content">
+                        <h3 class="venue-title">Vacsora & Mulatság</h3>
+                        <p class="venue-name">Halász Vendéglő</p>
+                        <p class="venue-address">
+                            <i class="fa-solid fa-location-dot"></i>
+                            9346 Kisfalud, Kossuth utca 59
+                        </p>
+                        <p class="venue-time">
+                            <i class="fa-regular fa-clock"></i>
+                            19:00 - hajnalig
+                        </p>
+                        <a href="https://maps.app.goo.gl/qsiiAmknw7dHy5io7" target="_blank" class="venue-map-btn" rel="noopener">
+                            <i class="fa-solid fa-map"></i> Térkép megnyitása
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            const a = document.createElement("a");
-            a.href = url;
-            a.download = "kata-marci-eskuvo.ics";
-            document.body.appendChild(a);
-            a.click();
-            a.remove();
+    <!-- Galéria szekció -->
+    <section id="galeria" class="section gallery-section">
+        <div class="container">
+            <h2 class="section-title">A mi történetünk</h2>
 
-            setTimeout(() => URL.revokeObjectURL(url), 2000);
+            <div class="section-ornament" aria-hidden="true"></div>
 
-            console.log("%c✅ Naptárfájl sikeresen letöltve!", "color: #B48B58; font-weight: bold; font-size: 14px;");
-        });
+            <p class="section-subtitle">Néhány pillanat közös életünkből</p>
 
-        // ==========================================
-        // CONSOLE ÜZENET (Easter egg)
-        // ==========================================
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="fotok/01.jpeg" alt="Kata és Marci – jegyesfotók" loading="lazy" decoding="async">
+                    <div class="gallery-overlay">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="fotok/02.jpeg" alt="Kata és Marci – jegyesfotók" loading="lazy" decoding="async">
+                    <div class="gallery-overlay">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="fotok/03.jpeg" alt="Kata és Marci – jegyesfotók" loading="lazy" decoding="async">
+                    <div class="gallery-overlay">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="fotok/04.jpeg" alt="Kata és Marci – jegyesfotók" loading="lazy" decoding="async">
+                    <div class="gallery-overlay">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="fotok/05.jpeg" alt="Kata és Marci – jegyesfotók" loading="lazy" decoding="async">
+                    <div class="gallery-overlay">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="fotok/06.jpeg" alt="Kata és Marci – jegyesfotók" loading="lazy" decoding="async">
+                    <div class="gallery-overlay">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="fotok/07.jpeg" alt="Kata és Marci – jegyesfotók" loading="lazy" decoding="async">
+                    <div class="gallery-overlay">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="fotok/08.jpeg" alt="Kata és Marci – jegyesfotók" loading="lazy" decoding="async">
+                    <div class="gallery-overlay">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="fotok/09.jpeg" alt="Kata és Marci – jegyesfotók" loading="lazy" decoding="async">
+                    <div class="gallery-overlay">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        console.log("%c💍 Kata & Marci Esküvő 2026 💍", "font-size: 18px; color: #B48B58; font-weight: bold;");
-        console.log("%cSzeretettel várunk mindenkit! ❤️", "font-size: 13px; color: #765830; font-style: italic;");
-    </script>
+    <!-- Szállás szekció -->
+    <section id="szallas" class="section accommodation-section">
+        <div class="container">
+            <h2 class="section-title">Szállás</h2>
+
+            <div class="section-ornament" aria-hidden="true"></div>
+
+            <p class="section-subtitle">Ha esetleg nincs szálllásod, itt a lehetőség, hogy foglalj.</p>
+
+            <div class="accommodation-grid accommodation-grid-single">
+                <div class="accommodation-card">
+                    <div class="accommodation-icon">
+                        <i class="fa-solid fa-hotel"></i>
+                    </div>
+                    <h3 class="accommodation-name">Menta Rooms & Bar</h3>
+                    <p class="accommodation-description">
+                        Mi ezt ajánljuk!
+                    </p>
+                    <p class="accommodation-distance">
+                        <i class="fa-solid fa-location-dot"></i>
+                        Kapuvár, Bercsényi Miklós u. 42, 9330
+                    </p><br>
+
+                    <a href="https://maps.google.com/?q=Kapuvár,+Bercsényi+Miklós+u.+42,+9330" target="_blank" rel="noopener" class="accommodation-btn">
+                        <i class="fa-solid fa-map"></i> Térkép megnyitása
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ajándék szekció -->
+    <section id="ajandek" class="section gift-section">
+        <div class="container">
+            <h2 class="section-title">Ajándék</h2>
+
+            <div class="section-ornament" aria-hidden="true"></div>
+
+            <div class="gift-content">
+                <div class="gift-message">
+                    <i class="fa-solid fa-gift"></i>
+                    <p>A legnagyobb ajándék számunkra a jelenlétetek!</p>
+                    <p class="gift-subtitle">Ha mégis kedveskedni szeretnétek, az alábbi lehetőségek közül választhattok:</p>
+                </div>
+
+                <div class="gift-options">
+                    <div class="gift-option">
+                        <div class="gift-icon">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <h3>Boríték</h3>
+                        <p>A hagyományos borítékot örömmel fogadjuk, amely segíti a közös életünk kezdését.</p>
+                    </div>
+
+                    <div class="gift-option">
+                        <div class="gift-icon">
+                            <i class="fa-solid fa-plane"></i>
+                        </div>
+                        <h3>Nászút támogatás</h3>
+                        <p>Álmaink nászútjához való hozzájárulást köszönettel fogadjuk.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RSVP szekció -->
+    <section id="rsvp" class="section rsvp-section">
+        <div class="container">
+            <h2 class="section-title">Visszajelzés</h2>
+
+            <div class="section-ornament" aria-hidden="true"></div>
+
+            <p class="section-subtitle">Kérjük, erősítsd meg részvételedet legkésőbb 2026. július 1-ig!</p>
+
+            <div class="rsvp-content">
+                <div class="rsvp-info">
+                    <div class="rsvp-contact">
+                        <i class="fa-solid fa-envelope"></i>
+                        <div>
+                            <h3>Email</h3>
+                            <a href="mailto:vidakatalin98@gmail.com">vidakatalin98@gmail.com</a>
+                        </div>
+                    </div>
+
+                    <div class="rsvp-contact">
+                        <i class="fa-solid fa-phone"></i>
+                        <div>
+                            <h3>Telefonon</h3>
+                            <p>Kata: +36 30 990 0789</p>
+                            <p>Marci: +36 30 123 7855</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rsvp-note">
+                    <i class="fa-solid fa-circle-info"></i>
+                    <p>Kérjük add meg a visszajelzésedkor a nevedet, hogy hányan jöttök, és hogy van-e valamilyen ételallergiád!</p>
+                </div>
+
+                <div class="rsvp-form-wrap" aria-label="Visszajelző űrlap">
+                    <iframe
+                        src="https://docs.google.com/forms/d/e/1FAIpQLSfM6cnOGitez6c0-OmFytmKhO1RbyxuRgoSFkExDCnXfwO_FQ/viewform?embedded=true"
+                        width="640"
+                        height="877"
+                        frameborder="0"
+                        marginheight="0"
+                        marginwidth="0"
+                        loading="lazy"
+                        title="Visszajelzés - Google Form"
+                    >Betöltés…</iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- feltöltés blokk innen -->
+    <section id="feltoltes" class="section upload-section">
+        <div class="container">
+            <h2 class="section-title">Képek & videók</h2>
+
+            <div class="section-ornament" aria-hidden="true"></div>
+
+            <div class="upload-card">
+                <div class="upload-icon">
+                    <i class="fa-solid fa-cloud-arrow-up"></i>
+                </div>
+
+                <p class="upload-title">Fotóztál vagy videóztál az esküvőnkön?</p>
+                <p class="upload-text">Nagyon örülnénk, ha megosztanád velünk is! ❤️</p>
+
+                <a class="upload-btn" href="#">
+                    <i class="fa-solid fa-arrow-up-from-bracket"></i>
+                    Feltöltés pCloud-ra
+                </a>
+
+                <p class="upload-hint">
+                    <span class="upload-soon">Hamarosan…</span> Az esküvő után térj vissza ide, és töltsd fel a kedvenc pillanataidat!
+                </p>
+            </div>
+        </div>
+    </section>
+    <!-- feltöltés blokk eddig -->
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>Kata & Marci</h2>
+                    <p>2026. augusztus 7.</p>
+                </div>
+                <div class="footer-social">
+                    <p>Találkozzunk ezen a különleges napon!</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Kata & Marci esküvője • Minden jog fenntartva</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
